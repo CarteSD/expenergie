@@ -1,0 +1,5 @@
+node_modules
+public/assets/css/builded.css
+vendor
+.env
+.idea/

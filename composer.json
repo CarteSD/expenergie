@@ -1,0 +1,7 @@
+{
+    "require": {
+        "twig/twig": "^3.17",
+        "twig/intl-extra": "^3.17",
+        "vlucas/phpdotenv": "^5.6"
+    }
+}

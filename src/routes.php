@@ -16,3 +16,8 @@ $router->get('/', function () use ($loader, $twig) {
     echo $twig->render('home.twig');
     exit;
 });
+
+$router->get('/about', function () use ($loader, $twig) {
+    echo $twig->render('about.twig');
+    exit;
+});

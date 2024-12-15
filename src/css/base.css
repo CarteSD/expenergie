@@ -165,3 +165,9 @@
         src: url(/assets/fonts/Barlow_Condensed/BarlowCondensed-BlackItalic.ttf) format('truetype');
     }
 }
+
+.active {
+    scale: 135%;
+    margin: 4px;
+    color: theme('colors.blue-techno.base');
+}

@@ -13,6 +13,6 @@ global $loader, $twig;
 $router = Router::getInstance();
 
 $router->get('/', function () use ($loader, $twig) {
-    echo 'Page d\'accueil fonctionnelle !';
+    echo $twig->render('home.twig');
     exit;
 });

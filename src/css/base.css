@@ -167,7 +167,7 @@
 }
 
 .active {
-    scale: 135%;
+    scale: 115%;
     margin: 4px;
     color: theme('colors.blue-techno.base');
 }

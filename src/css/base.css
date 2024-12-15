@@ -171,3 +171,8 @@
     margin: 4px;
     color: theme('colors.blue-techno.base');
 }
+
+.redirect {
+    color: theme('colors.blue-techno.base');
+    text-decoration: underline;
+}

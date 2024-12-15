@@ -68,9 +68,13 @@
 </header>
 
 
-<div class="p-10">
-    {% block content %}{% endblock %}
-    <footer class="flex justify-center p-6 font-serif">© 2024 Expenergie - Tous droits réservés</footer>
+<div class="flex flex-col min-h-screen">
+    <div class="flex-grow p-10">
+        {% block content %}{% endblock %}
+    </div>
+    <footer class="flex justify-center p-6 font-serif">
+        © 2024 Expenergie - Tous droits réservés
+    </footer>
 </div>
 
 <script language="JavaScript">

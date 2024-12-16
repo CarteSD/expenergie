@@ -70,7 +70,25 @@ $router->post('/contact', function () use ($loader, $twig) {
     $mail->Body = "Message reçu de : " . $_POST['nom'] . " " . $_POST['prenom'] . " (" . $_POST['email'] . ")<br><br>" . nl2br(htmlspecialchars($_POST['message'] ));
     $mail->setLanguage('fr', './vendor/phpmailer/phpmailer/language/phpmailer.lang-fr.php');
 
-    if ($mail->send()) {
+    $mailConfirm = new PHPMailer();
+    $mailConfirm->isSMTP();
+    $mailConfirm->SMTPDebug = 0;
+    $mailConfirm->Host = 'partage.univ-pau.fr';
+    $mailConfirm->SMTPAuth = true;
+    $mailConfirm->Username = $_ENV['MAIL_USER'];
+    $mailConfirm->Password = $_ENV['MAIL_PASS'];
+    $mailConfirm->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+    $mailConfirm->Port = 465;
+    $mailConfirm->CharSet = 'UTF-8';
+    $mailConfirm->Encoding = 'base64';
+
+    $mailConfirm->setFrom('edesessard@univ-pau.fr', 'Estéban DESESSARD');
+    $mailConfirm->addAddress($_POST['email']);
+    $mailConfirm->isHTML(true);
+    $mailConfirm->Subject = "Confirmation de l'envoi de votre message";
+    $mailConfirm->Body = "Bonjour " . $_POST['prenom'] . ",<br><br>Nous avons bien reçu votre message et nous vous remercions de nous avoir contacté. Nous vous recontacterons dans les plus brefs délais.<br><br>Cordialement,<br>Expenergie";
+
+    if ($mail->send() && $mailConfirm->send()) {
         echo $twig->render('contact.twig', ['success' => 'Votre message a bien été envoyé. Nous vous recontacterons dans les plus brefs délais.']);
     }
     else {

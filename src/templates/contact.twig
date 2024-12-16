@@ -1,0 +1,48 @@
+{% extends '/layouts/base.twig' %}
+{% block title %}Nous contacter{% endblock %}
+
+{% block content %}
+    <div class="flex flex-col gap-5">
+        <p class="font-serif text-3xl font-semibold">Nous contacter</p>
+        <p class="font-serif text-justify">
+            Vous avez un projet en tête ou des questions sur nos services d'installation photovoltaïque ? Chez Expenergie, nous sommes à l’écoute de vos besoins et prêts à vous accompagner à chaque étape. En tant qu’artisan unique, chaque demande est traitée avec soin et attention, pour vous offrir des solutions sur mesure.<br>
+            <br>
+            Remplissez le formulaire ci-dessous et nous reviendrons vers vous dans les plus brefs délais pour discuter de votre projet.<br>
+            <br>
+            <span class="font-semibold">Ensemble, donnons vie à vos idées et optimisons votre énergie !</span>
+        </p>
+        <form class="shadow-lg rounded-2xl p-8">
+            <div class="flex flex-col gap-5">
+                <div class="flex flex-col gap-2">
+                    <label for="nom" class="font-serif font-semibold">Votre nom :</label>
+                    <input type="text" id="nom" name="nom" class="rounded-2xl border-2 border-platinum-3 focus:outline-none focus:border-blue-techno-base p-2 font-serif">
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="prenom" class="font-serif font-semibold">Votre prénom :</label>
+                    <input type="text" id="prenom" name="prenom" class="rounded-2xl border-2 border-platinum-3 focus:outline-none focus:border-blue-techno-base p-2 font-serif">
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="email" class="font-serif font-semibold">Votre adresse e-mail :</label>
+                    <input type="email" id="email" name="email" class="rounded-2xl border-2 border-platinum-3 focus:outline-none focus:border-blue-techno-base p-2 font-serif">
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="message" class="font-serif font-semibold">Votre message :</label>
+                    <textarea id="message" name="message" class="rounded-2xl border-2 border-platinum-3 focus:outline-none focus:border-blue-techno-base p-2 font-serif"></textarea>
+                </div>
+                <div class="flex gap-2 ml-4">
+                    <input type="checkbox" id="accept" name="accept" class="rounded-2xl border-2 border-platinum-3 focus:outline-none focus:border-blue-techno-base font-serif">
+                    <label for="accept" class="font-serif">J'accepte d'être recontacté(e) à l'adresse e-mail fournie précédemment</label>
+                </div>
+                <div class="flex justify-end">
+                    <button type="submit" class="rounded-2xl border-2 border-blue-techno-base p-2 font-serif text-blue-techno-base hover:bg-blue-techno-base hover:text-platinum-base ease-in-out transition-all duration-500">Envoyer mon message</button>
+                </div>
+            </div>
+            <div class="flex m-2 items-center gap-4 mt-4">
+                <svg class="text-platinum-4 border-2" xmlns="http://www.w3.org/2000/svg" width="2.5em" height="2.5em" viewBox="0 0 24 24"><g fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M12 17v-6"/><circle cx="1" cy="1" r="1" fill="currentColor" transform="matrix(1 0 0 -1 11 9)"/><path stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg>
+                <div class="flex flex-col gap-2">
+                    <p class="italic text-platinum-4 font-serif">Conformément au Règlement Général sur la Protection des Données (<a href="https://www.cnil.fr/fr/reglement-europeen-protection-donnees" class="redirect">RGPD</a>), les informations recueillies via ce formulaire (nom, prénom et adresse e-mail) sont strictement utilisées pour répondre à votre demande et ne seront ni conservées ni partagées sans votre consentement.</p>
+                    <p class="italic text-platinum-4 font-serif">La rédaction et l'envoi de ce formulaire ne vous engae dans aucune démarche professionnelle</p>
+                </div>
+            </div>
+        </form>
+{% endblock %}

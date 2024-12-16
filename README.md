@@ -20,7 +20,7 @@ Site web vitrine pour **Expenergie**, une SARL spécialisée dans l'installation
 
 Pour exécuter ce projet localement, vous aurez besoin de :
 
-- **PHP >= 7.4** 🐘
+- **PHP >= 8.1** 🐘
 - **Node.js** et **npm** (pour TailwindCSS) 📦
 - Un serveur web local (**Apache/Nginx**) 🌐
 

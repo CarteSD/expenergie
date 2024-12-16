@@ -39,7 +39,7 @@ $router->get('/contact', function () use ($loader, $twig) {
 });
 
 $router->post('/contact', function () use ($loader, $twig) {
-    if (empty($_POST['nom']) || empty($_POST['prenom']) || empty($_POST['email']) || empty($_POST['message'] || !isset($_POST['accept']))) {
+    if (empty($_POST['nom']) || empty($_POST['prenom']) || empty($_POST['zipcode']) || empty($_POST['ville']) || empty($_POST['email']) || empty($_POST['message'] || !isset($_POST['accept']))) {
         echo $twig->render('contact.twig', ['error' => 'Tous les champs sont obligatoires.']);
         exit;
     }
@@ -67,7 +67,7 @@ $router->post('/contact', function () use ($loader, $twig) {
     $mail->addAddress('edesessard@iutbayonne.univ-pau.fr', 'Estéban DESESSARD');
     $mail->isHTML(true);
     $mail->Subject = "Nouveau message depuis le formulaire de contact";
-    $mail->Body = "Message reçu de : " . $_POST['nom'] . " " . $_POST['prenom'] . " (" . $_POST['email'] . ")<br><br>" . nl2br(htmlspecialchars($_POST['message'] ));
+    $mail->Body = "Message reçu de : " . $_POST['nom'] . " " . $_POST['prenom'] . " (" . $_POST['email'] . ")<br>Code postal : " . $_POST['zipcode'] . ", Ville : " . $_POST['ville'] . "<br><br>" . nl2br(htmlspecialchars($_POST['message'] ));
     $mail->setLanguage('fr', './vendor/phpmailer/phpmailer/language/phpmailer.lang-fr.php');
 
     $mailConfirm = new PHPMailer();

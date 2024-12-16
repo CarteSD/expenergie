@@ -11,26 +11,26 @@
             <br>
             <span class="font-semibold">Ensemble, donnons vie à vos idées et optimisons votre énergie !</span>
         </p>
-        <form class="shadow-lg rounded-2xl p-8">
+        <form class="shadow-lg rounded-2xl p-8" method="POST">
             <div class="flex flex-col gap-5">
                 <div class="flex flex-col gap-2">
                     <label for="nom" class="font-serif font-semibold">Votre nom :</label>
-                    <input type="text" id="nom" name="nom" class="rounded-2xl border-2 border-platinum-3 focus:outline-none focus:border-blue-techno-base p-2 font-serif">
+                    <input type="text" id="nom" name="nom" class="rounded-2xl border-2 border-platinum-3 focus:outline-none focus:border-blue-techno-base p-2 font-serif" required minlength="2" maxlength="64">
                 </div>
                 <div class="flex flex-col gap-2">
                     <label for="prenom" class="font-serif font-semibold">Votre prénom :</label>
-                    <input type="text" id="prenom" name="prenom" class="rounded-2xl border-2 border-platinum-3 focus:outline-none focus:border-blue-techno-base p-2 font-serif">
+                    <input type="text" id="prenom" name="prenom" class="rounded-2xl border-2 border-platinum-3 focus:outline-none focus:border-blue-techno-base p-2 font-serif" required minlength="2" maxlength="64">
                 </div>
                 <div class="flex flex-col gap-2">
                     <label for="email" class="font-serif font-semibold">Votre adresse e-mail :</label>
-                    <input type="email" id="email" name="email" class="rounded-2xl border-2 border-platinum-3 focus:outline-none focus:border-blue-techno-base p-2 font-serif">
+                    <input type="email" id="email" name="email" class="rounded-2xl border-2 border-platinum-3 focus:outline-none focus:border-blue-techno-base p-2 font-serif" required minlength="5" maxlength="64">
                 </div>
                 <div class="flex flex-col gap-2">
                     <label for="message" class="font-serif font-semibold">Votre message :</label>
-                    <textarea id="message" name="message" class="rounded-2xl border-2 border-platinum-3 focus:outline-none focus:border-blue-techno-base p-2 font-serif"></textarea>
+                    <textarea id="message" name="message" class="rounded-2xl border-2 border-platinum-3 focus:outline-none focus:border-blue-techno-base p-2 font-serif" required minlength="32" maxlength="4096"></textarea>
                 </div>
                 <div class="flex gap-2 ml-4">
-                    <input type="checkbox" id="accept" name="accept" class="rounded-2xl border-2 border-platinum-3 focus:outline-none focus:border-blue-techno-base font-serif">
+                    <input type="checkbox" id="accept" name="accept" class="rounded-2xl border-2 border-platinum-3 focus:outline-none focus:border-blue-techno-base font-serif" required>
                     <label for="accept" class="font-serif">J'accepte d'être recontacté(e) à l'adresse e-mail fournie précédemment</label>
                 </div>
                 <div class="flex justify-end">

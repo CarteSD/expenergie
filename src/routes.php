@@ -67,7 +67,7 @@ $router->post('/contact', function () use ($loader, $twig) {
     $mail->addAddress('edesessard@iutbayonne.univ-pau.fr', 'Estéban DESESSARD');
     $mail->isHTML(true);
     $mail->Subject = "Nouveau message depuis le formulaire de contact";
-    $mail->Body = "Message reçu de : " . $_POST['nom'] . " " . $_POST['prenom'] . " (" . $_POST['email'] . ")<br><br>" . $_POST['message'];
+    $mail->Body = "Message reçu de : " . $_POST['nom'] . " " . $_POST['prenom'] . " (" . $_POST['email'] . ")<br><br>" . nl2br(htmlspecialchars($_POST['message'] ));
     $mail->setLanguage('fr', './vendor/phpmailer/phpmailer/language/phpmailer.lang-fr.php');
 
     if ($mail->send()) {

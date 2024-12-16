@@ -21,8 +21,13 @@
                 </a>
             </li>
             <li class="p-3 xl:p-6 hover:scale-105 transition-all ease-in-out">
-                <a href="/offres" id="services-link">
+                <a href="/offres" id="offres-link">
                     <span class="text-xl font-serif">Offres</span>
+                </a>
+            </li>
+            <li class="p-3 xl:p-6 hover:scale-105 transition-all ease-in-out">
+                <a href="/services" id="services-link">
+                    <span class="text-xl font-serif">Services</span>
                 </a>
             </li>
             <li class="p-3 xl:p-6 hover:scale-105 transition-all ease-in-out">
@@ -87,6 +92,9 @@ if (path === '/') {
     document.getElementById('home-link').parentElement.classList.add('active');
     document.getElementById('home-link').parentElement.classList.remove('hover:scale-105');
 } else if (path === '/offres') {
+    document.getElementById('offres-link').parentElement.classList.add('active');
+    document.getElementById('offres-link').parentElement.classList.remove('hover:scale-105');
+} else if (path === '/services') {
     document.getElementById('services-link').parentElement.classList.add('active');
     document.getElementById('services-link').parentElement.classList.remove('hover:scale-105');
 } else if (path === '/installations') {

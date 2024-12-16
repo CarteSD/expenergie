@@ -17,6 +17,11 @@ $router->get('/', function () use ($loader, $twig) {
     exit;
 });
 
+$router->get('/offres', function () use ($loader, $twig) {
+    echo $twig->render('offres.twig');
+    exit;
+});
+
 $router->get('/about', function () use ($loader, $twig) {
     echo $twig->render('about.twig');
     exit;

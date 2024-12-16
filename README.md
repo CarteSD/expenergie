@@ -20,7 +20,7 @@ Site web vitrine pour **Expenergie**, une SARL spécialisée dans l'installation
 
 Pour exécuter ce projet localement, vous aurez besoin de :
 
-- **PHP >= 7.4** 🐘
+- **PHP >= 8.1** 🐘
 - **Node.js** et **npm** (pour TailwindCSS) 📦
 - Un serveur web local (**Apache/Nginx**) 🌐
 
@@ -30,7 +30,7 @@ Pour exécuter ce projet localement, vous aurez besoin de :
 
 1. **Clonez le dépôt** 📥
    ```bash
-   git clone https://github.com/[username]/expenergie.git
+   git clone https://github.com/CarteSD/expenergie.git
    cd expenergie
     ```
    
@@ -53,14 +53,14 @@ Pour exécuter ce projet localement, vous aurez besoin de :
 ## 📂 Structure du Projet
 
     expenergie/
-    ├── assets/        # Fichiers CSS/JS
-    │   ├── css/
-    │   └── js/
-    ├── src/           # Templates Twig
-    │   └── templates/
-    ├── public/        # Fichiers statiques
-    ├── .env           # Variables d'environnement
-    └── vendor/        # Dépendances PHP
+    ├── src/           
+    │   └── templates/ # Templates Twig
+    ├── public/        
+    │   └── assets/
+    │       ├── css/   # Fichiers CSS
+    │       ├── img/   # Images
+    │       └── js/    # Fichiers JS
+    └── .env           # Variables d'environnement
 
 
 ## 👨‍💻 Auteur

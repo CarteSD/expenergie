@@ -60,6 +60,8 @@ $router->post('/contact', function () use ($loader, $twig) {
     $mail->Password = $_ENV['MAIL_PASS'];
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port = 465;
+    $mail->CharSet = 'UTF-8';
+    $mail->Encoding = 'base64';
 
     $mail->setFrom('edesessard@univ-pau.fr', $_POST['nom'] . ' ' . $_POST['prenom']);
     $mail->addAddress('edesessard@iutbayonne.univ-pau.fr', 'Estéban DESESSARD');

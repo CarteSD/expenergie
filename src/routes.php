@@ -9,6 +9,7 @@
  */
 
 global $loader, $twig;
+use PHPMailer\PHPMailer\PHPMailer;
 
 $router = Router::getInstance();
 
@@ -34,5 +35,44 @@ $router->get('/about', function () use ($loader, $twig) {
 
 $router->get('/contact', function () use ($loader, $twig) {
     echo $twig->render('contact.twig');
+    exit;
+});
+
+$router->post('/contact', function () use ($loader, $twig) {
+    if (empty($_POST['nom']) || empty($_POST['prenom']) || empty($_POST['email']) || empty($_POST['message'] || !isset($_POST['accept']))) {
+        echo $twig->render('contact.twig', ['error' => 'Tous les champs sont obligatoires.']);
+        exit;
+    }
+    if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+        echo $twig->render('contact.twig', ['error' => 'L\'adresse email n\'est pas valide.']);
+        exit;
+    }
+    if (strlen($_POST['message']) < 32) {
+        echo $twig->render('contact.twig', ['error' => 'Le message doit contenir au moins 32 caractères.']);
+        exit;
+    }
+    $mail = new PHPMailer();
+    $mail->isSMTP();
+    $mail->SMTPDebug = 0;
+    $mail->Host = 'partage.univ-pau.fr';
+    $mail->SMTPAuth = true;
+    $mail->Username = $_ENV['MAIL_USER'];
+    $mail->Password = $_ENV['MAIL_PASS'];
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+    $mail->Port = 465;
+
+    $mail->setFrom('edesessard@univ-pau.fr', $_POST['nom'] . ' ' . $_POST['prenom']);
+    $mail->addAddress('edesessard@iutbayonne.univ-pau.fr', 'Estéban DESESSARD');
+    $mail->isHTML(true);
+    $mail->Subject = "Nouveau message depuis le formulaire de contact";
+    $mail->Body = "Message reçu de : " . $_POST['nom'] . " " . $_POST['prenom'] . " (" . $_POST['email'] . ")<br><br>" . $_POST['message'];
+    $mail->setLanguage('fr', './vendor/phpmailer/phpmailer/language/phpmailer.lang-fr.php');
+
+    if ($mail->send()) {
+        echo $twig->render('contact.twig', ['success' => 'Votre message a bien été envoyé. Nous vous recontacterons dans les plus brefs délais.']);
+    }
+    else {
+        echo $twig->render('contact.twig', ['error' => 'Une erreur est survenue lors de l\'envoi du message. Merci de nous contacter directement à l\'adresse e-mail sebastien.desessard@expenergie.fr']);
+    }
     exit;
 });

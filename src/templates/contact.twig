@@ -12,6 +12,18 @@
             <span class="font-semibold">Ensemble, donnons vie à vos idées et optimisons votre énergie !</span>
         </p>
         <form class="shadow-lg rounded-2xl p-8" method="POST">
+            {% if error != NULL %}
+                <div class="bg-red-200 border-red-800 border-2 rounded-2xl font-serif text-red-800 p-4 mb-6">
+                    <p class="font-semibold">Une erreur est survenue !</p>
+                    <p>{{ error }}</p>
+                </div>
+            {% endif %}
+            {% if success != NULL %}
+                <div class="bg-green-200 border-green-800 border-2 rounded-2xl font-serif text-green-800 p-4 mb-6">
+                    <p class="font-semibold">Tout s'est parfaitement déroulé !</p>
+                    <p>{{ success }}</p>
+                </div>
+            {% endif %}
             <div class="flex flex-col gap-5">
                 <div class="flex flex-col gap-2">
                     <label for="nom" class="font-serif font-semibold">Votre nom :</label>
@@ -27,7 +39,7 @@
                 </div>
                 <div class="flex flex-col gap-2">
                     <label for="message" class="font-serif font-semibold">Votre message :</label>
-                    <textarea id="message" name="message" class="rounded-2xl border-2 border-platinum-3 focus:outline-none focus:border-blue-techno-base p-2 font-serif" required minlength="32" maxlength="4096"></textarea>
+                    <textarea id="message" name="message" class="h-24 rounded-2xl border-2 border-platinum-3 focus:outline-none focus:border-blue-techno-base p-2 font-serif" required minlength="32" maxlength="4096"></textarea>
                 </div>
                 <div class="flex gap-2 ml-4">
                     <input type="checkbox" id="accept" name="accept" class="rounded-2xl border-2 border-platinum-3 focus:outline-none focus:border-blue-techno-base font-serif" required>

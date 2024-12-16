@@ -4,29 +4,27 @@
 {% block content %}
     <div class="flex flex-col gap-5">
         <p class="font-serif text-3xl font-semibold">Nos offres</p>
+        <p class="font-serif text-justify">
+            Expenergie propose des solutions d'installation photovoltaïque sur mesure, adaptées à tous les besoins. Nous vous offrons des choix flexibles : avec ou sans stockage d'énergie, pour une autoconsommation optimale avec la revente du surplus de production. Grâce à l'autoconsommation, vous produisez et consommez directement l'énergie solaire générée par vos panneaux photovoltaïques, ce qui vous permet de réduire considérablement votre dépendance au réseau électrique. Cette solution est idéale pour ceux qui souhaitent maîtriser leur consommation d'énergie tout en faisant des économies sur leurs factures.<br>
+            <br>
+            L'installation de batteries vous permet de stocker l'excédent d'énergie afin de l'utiliser plus tard, notamment la nuit ou lors des coupures de courant. En revanche, pour une installation sans stockage, l'énergie excédentaire est envoyée directement sur le réseau électrique, contribuant ainsi à la transition énergétique tout en vous permettant de bénéficier d'un revenu de la revente de votre surplus.
+        </p>
         <div class="grid grid-cols-2 gap-5">
-            <div class="col-span-1 shadow-lg rounded-2xl p-4 flex flex-col gap-2">
-                <p class="font-serif text-2xl font-semibold flex justify-center">Autoconsommation</p>
-                <p class="font-serif text-justify">L'autoconsommation consiste à produire et consommer sa propre énergie produite par les panneaux photovoltaïques, en réduisant ainsi la dépendance au réseau électrique. Cette énergie peut être utilisée directement ou stockée pour une utilisation ultérieure.</p>
-                <div class="flex mt-6 items-center">
-                    <img src="/assets/img/solaredge_battery.png" alt="" class="w-1/3">
-                    <div class="flex flex-col gap-2 w-2/3">
-                        <p class="font-serif text-xl">Avec stockage</p>
-                        <p class="font-serif text-justify">Stockez votre énergie afin de maximiser votre autonomie énergétique et profiter pleinement de l'électricité produite, même lorsque le soleil n'est pas au rendez-vous.</p>
-                        <a href="/services/autoconsommation/avec-stockage" class="w-fit py-1 px-3 rounded-full border-blue-techno-base border-2 font-semibold text-blue-techno-base hover:bg-blue-techno-base hover:text-platinum-base ease-in-out transition-all duration-500 font-serif">Je découvre !</a>
-                    </div>
-                </div>
-                <div class="flex items-center">
-                    <img src="/assets/img/solar_panel.png" alt="" class="w-1/3 p-10">
-                    <div class="flex flex-col gap-2 w-2/3">
-                        <p class="font-serif text-xl">Sans stockage</p>
-                        <p class="font-serif text-justify">Produisez et consommez directement votre énergie solaire en renvoyant le surplus sur le réseau électrique.</p>
-                        <a href="/services/autoconsommation/sans-stockage" class="w-fit py-1 px-3 rounded-full border-blue-techno-base border-2 font-semibold text-blue-techno-base hover:bg-blue-techno-base hover:text-platinum-base ease-in-out transition-all duration-500 font-serif">Je découvre !</a>
-                    </div>
+            <div class="flex mt-6 items-center shadow-lg rounded-2xl p-4 col-span-1">
+                <img src="/assets/img/solaredge_battery.png" alt="" class="w-1/3">
+                <div class="flex flex-col gap-2 w-2/3">
+                    <p class="font-serif text-xl">Avec stockage</p>
+                    <p class="font-serif text-justify">Stockez votre énergie afin de maximiser votre autonomie énergétique et profiter pleinement de l'électricité produite, même lorsque le soleil n'est pas au rendez-vous.</p>
+                    <a href="/offres/autoconsommation/avec-stockage" class="w-fit py-1 px-3 rounded-full border-blue-techno-base border-2 font-semibold text-blue-techno-base hover:bg-blue-techno-base hover:text-platinum-base ease-in-out transition-all duration-500 font-serif">Je découvre !</a>
                 </div>
             </div>
-            <div class="col-span-1 shadow-lg rounded-2xl p-4 flex flex-col gap-2">
-
+            <div class="flex mt-6 items-center shadow-lg rounded-2xl p-4 col-span-1">
+                <img src="/assets/img/solar_panel.png" alt="" class="w-1/3 p-12">
+                <div class="flex flex-col gap-2 w-2/3">
+                    <p class="font-serif text-xl">Sans stockage</p>
+                    <p class="font-serif text-justify">Produisez et consommez directement votre énergie solaire en renvoyant le surplus sur le réseau électrique.</p>
+                    <a href="/offres/autoconsommation/sans-stockage" class="w-fit py-1 px-3 rounded-full border-blue-techno-base border-2 font-semibold text-blue-techno-base hover:bg-blue-techno-base hover:text-platinum-base ease-in-out transition-all duration-500 font-serif">Je découvre !</a>
+                </div>
             </div>
         </div>
     </div>

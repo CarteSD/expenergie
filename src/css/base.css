@@ -188,3 +188,11 @@
 [type="number"] {
     -moz-appearance: textfield;
 }
+
+.invalid {
+    border-color: theme('colors.red.500');
+}
+
+.valid {
+    border-color: theme('colors.green.500');
+}

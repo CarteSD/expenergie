@@ -9,7 +9,7 @@
             <br>
             L'installation de batteries vous permet de stocker l'excédent d'énergie afin de l'utiliser plus tard, notamment la nuit ou lors des coupures de courant. En revanche, pour une installation sans stockage, l'énergie excédentaire est envoyée directement sur le réseau électrique, contribuant ainsi à la transition énergétique tout en vous permettant de bénéficier d'un revenu de la revente de votre surplus.
         </p>
-        <div class="grid grid-cols-2 gap-5">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
             <div class="flex mt-6 items-center shadow-lg rounded-2xl p-4 col-span-1">
                 <img src="/assets/img/solaredge_battery.png" alt="" class="w-1/3">
                 <div class="flex flex-col gap-2 w-2/3">
@@ -32,7 +32,7 @@
     <div onclick="closeModal()" id="modal-background" class="hidden opacity-70 fixed inset-0 bg-charcoal-base z-40 duration-1000 transition-all ease-in-out transform"></div>
 
     <div id="modal_with-stockage"
-         class="modal hidden w-full sm:w-1/2 bg-platinum-base absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all transform duration-500 p-5 rounded-2xl z-50 shadow-2xl">
+         class="modal hidden w-full sm:w-1/2 bg-platinum-base fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all transform duration-500 p-5 rounded-2xl z-50 shadow-2xl">
         <div class="flex flex-col gap-5 my-5">
             <div class="font-serif text-2xl flex justify-center">
                 Installation avec stockage
@@ -55,7 +55,7 @@
     </div>
 
     <div id="modal_without-stockage"
-         class="modal hidden w-full sm:w-1/2 bg-platinum-base absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all transform duration-500 p-5 rounded-2xl z-50 shadow-2xl">
+         class="modal hidden w-full sm:w-1/2 bg-platinum-base fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all transform duration-500 p-5 rounded-2xl z-50 shadow-2xl">
         <div class="flex flex-col gap-5 my-5">
             <div class="font-serif text-2xl flex justify-center">
                 Installation sans stockage

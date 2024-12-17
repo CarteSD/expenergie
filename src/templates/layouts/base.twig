@@ -39,6 +39,9 @@
                 <a href="/about" id="about-link"><span class="text-xl font-serif">À propos</span></a>
             </li>
             <li class="p-3 xl:p-6 hover:scale-105 transition-all ease-in-out">
+                <a href="/faq" id="faq-link"><span class="text-xl font-serif">FàQ</span></a>
+            </li>
+            <li class="p-3 xl:p-6 hover:scale-105 transition-all ease-in-out">
                 <a href="/contact" id="contact-link"><span class="text-xl font-serif">Contact</span></a>
             </li>
         </ul>
@@ -49,6 +52,7 @@
             <li class="p-3 hover:text-blue-techno-base flex justify-center"><a href="/services">Services</a></li>
             <li class="p-3 hover:text-blue-techno-base flex justify-center"><a href="/installations">Installations</a></li>
             <li class="p-3 hover:text-blue-techno-base flex justify-center"><a href="/about">À propos</a></li>
+            <li class="p-3 hover:text-blue-techno-base flex justify-center"><a href="/faq">FàQ</a></li>
             <li class="p-3 hover:text-blue-techno-base flex justify-center"><a href="/contact">Contact</a></li>
         </ul>
     </nav>
@@ -109,6 +113,9 @@ if (path === '/') {
 } else if (path === '/about') {
     document.getElementById('about-link').parentElement.classList.add('active');
     document.getElementById('about-link').parentElement.classList.remove('hover:scale-105');
+} else if (path === '/faq') {
+    document.getElementById('faq-link').parentElement.classList.add('active');
+    document.getElementById('faq-link').parentElement.classList.remove('hover:scale-105');
 } else if (path === '/contact') {
     document.getElementById('contact-link').parentElement.classList.add('active');
     document.getElementById('contact-link').parentElement.classList.remove('hover:scale-105');

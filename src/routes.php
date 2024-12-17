@@ -33,6 +33,11 @@ $router->get('/about', function () use ($loader, $twig) {
     exit;
 });
 
+$router->get('/faq', function () use ($loader, $twig) {
+    echo $twig->render('faq.twig');
+    exit;
+});
+
 $router->get('/contact', function () use ($loader, $twig) {
     echo $twig->render('contact.twig');
     exit;

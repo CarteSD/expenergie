@@ -196,3 +196,16 @@
 .valid {
     border-color: theme('colors.green.500');
 }
+
+.answer {
+    opacity: 0;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.faq-question.expanded .answer {
+    opacity: 1;
+}
+
+.faq-question.expanded .toggle-icon {
+    transform: rotate(180deg);
+}

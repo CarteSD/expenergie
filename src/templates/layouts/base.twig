@@ -9,45 +9,51 @@
     <title>{% block title %}-{% endblock %} | Expenergie</title>
 </head>
 <body class="bg-platinum-base">
-<header class="bg-platinum-base shadow-lg h-24 hidden md:flex">
-    <a href="" class="border flex-shrink-0 flex items-center justify-center px-4 lg:px-6 xl:px-8">
+<header class="bg-platinum-base shadow-lg h-24 flex justify-between">
+    <a href="" class="border flex-shrink-0 hidden md:flex items-center justify-center px-4 lg:px-6 xl:px-8">
         <img src="" alt=""/>
     </a>
     <nav class="header-links contents font-semibold text-base lg:text-lg">
-        <ul class="flex items-center ml-4 xl:ml-8 mr-auto">
+        <div class="flex items-center justify-between p-4 lg:hidden">
+            <button id="burger-menu" class="text-gray-800 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <ul class="hidden lg:flex items-center ml-4 xl:ml-8 mr-auto">
             <li class="p-3 xl:p-6 hover:scale-105 transition-all ease-in-out">
-                <a href="/" id="home-link">
-                    <span class="text-xl font-serif">Accueil</span>
-                </a>
+                <a href="/" id="home-link"><span class="text-xl font-serif">Accueil</span></a>
             </li>
             <li class="p-3 xl:p-6 hover:scale-105 transition-all ease-in-out">
-                <a href="/offres" id="offres-link">
-                    <span class="text-xl font-serif">Offres</span>
-                </a>
+                <a href="/offres" id="offres-link"><span class="text-xl font-serif">Offres</span></a>
             </li>
             <li class="p-3 xl:p-6 hover:scale-105 transition-all ease-in-out">
-                <a href="/services" id="services-link">
-                    <span class="text-xl font-serif">Services</span>
-                </a>
+                <a href="/services" id="services-link"><span class="text-xl font-serif">Services</span></a>
             </li>
             <li class="p-3 xl:p-6 hover:scale-105 transition-all ease-in-out">
-                <a href="/installations" id="installations-link">
-                    <span class="text-xl font-serif">Installations</span>
-                </a>
+                <a href="/installations" id="installations-link"><span class="text-xl font-serif">Installations</span></a>
             </li>
             <li class="p-3 xl:p-6 hover:scale-105 transition-all ease-in-out">
-                <a href="/about" id="about-link">
-                    <span class="text-xl font-serif">À propos</span>
-                </a>
+                <a href="/about" id="about-link"><span class="text-xl font-serif">À propos</span></a>
             </li>
             <li class="p-3 xl:p-6 hover:scale-105 transition-all ease-in-out">
-                <a href="/contact" id="contact-link">
-                    <span class="text-xl font-serif">Contact</span>
-                </a>
+                <a href="/contact" id="contact-link"><span class="text-xl font-serif">Contact</span></a>
             </li>
         </ul>
+
+        <ul id="mobile-menu" class="hidden flex-col bg-platinum-base lg:hidden absolute top-24 left-0 w-full shadow-lg text-xl transition-all">
+            <li class="p-3 hover:text-blue-techno-base flex justify-center"><a href="/">Accueil</a></li>
+            <li class="p-3 hover:text-blue-techno-base flex justify-center"><a href="/offres">Offres</a></li>
+            <li class="p-3 hover:text-blue-techno-base flex justify-center"><a href="/services">Services</a></li>
+            <li class="p-3 hover:text-blue-techno-base flex justify-center"><a href="/installations">Installations</a></li>
+            <li class="p-3 hover:text-blue-techno-base flex justify-center"><a href="/about">À propos</a></li>
+            <li class="p-3 hover:text-blue-techno-base flex justify-center"><a href="/contact">Contact</a></li>
+        </ul>
     </nav>
-    <nav class="hidden xl:contents">
+
+    <nav class="contents">
         <ul class="flex items-center mr-4 lg:mr-6 xl:mr-8">
             <li class="p-1">
                 <a href="mailto:sebastien.desessard@expenergie.fr" class="inline-block rounded-full border p-2 hover:shadow-lg hover:border-opacity-0 duration-200 hover:-translate-y-0.5 hover:text-blue-techno-base">
@@ -107,6 +113,15 @@ if (path === '/') {
     document.getElementById('contact-link').parentElement.classList.add('active');
     document.getElementById('contact-link').parentElement.classList.remove('hover:scale-105');
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const burgerMenu = document.getElementById('burger-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    burgerMenu.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+});
 </script>
 {% block scripts %}{% endblock %}
 </body>

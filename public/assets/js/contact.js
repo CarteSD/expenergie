@@ -7,7 +7,7 @@ let message = document.getElementsByName('message')[0];
 
 function checkNom() {
     let nomValue = nom.value;
-    if (nomValue.length < 2 || !nomValue.match(/^[\p{L}\p{M}]{2,}$/u)) {
+    if (nomValue.length < 2 || !nomValue.match(/^[\p{L}\p{M}-]{2,}$/u)) {
         nom.classList.add('invalid');
         nom.classList.remove('valid');
     }
@@ -19,7 +19,7 @@ function checkNom() {
 
 function checkPrenom() {
     let prenomValue = prenom.value;
-    if (prenomValue.length < 2 || !prenomValue.match(/^[\p{L}\p{M}]{2,}$/u)) {
+    if (prenomValue.length < 2 || !prenomValue.match(/^[\p{L}\p{M}-]{2,}$/u)) {
         prenom.classList.add('invalid');
         prenom.classList.remove('valid');
     }

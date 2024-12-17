@@ -176,3 +176,15 @@
     color: theme('colors.blue-techno.base');
     text-decoration: underline;
 }
+
+/* Désactiver les spinners pour les navigateurs basés sur WebKit */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Désactiver les spinners pour Firefox */
+[type="number"] {
+    -moz-appearance: textfield;
+}

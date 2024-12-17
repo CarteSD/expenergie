@@ -64,7 +64,7 @@ function checkEmail() {
 
 function checkMessage() {
     let messageValue = message.value;
-    if (messageValue.length < 32 && messageValue.length > 4096) {
+    if (messageValue.length < 32) {
         message.classList.add('invalid');
         message.classList.remove('valid');
     } else {

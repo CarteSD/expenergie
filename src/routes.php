@@ -35,7 +35,6 @@ $router->get('/about', function () use ($loader, $twig) {
 
 $router->get('/faq', function () use ($loader, $twig) {
     $questions = json_decode(file_get_contents(__DIR__ . '/data/faq.json'), true);
-    var_dump($questions);
     echo $twig->render('faq.twig', [
         'questions' => $questions['faq']
     ]);

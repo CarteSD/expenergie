@@ -5,10 +5,10 @@
     <div class="flex flex-col gap-5">
         <p class="font-serif text-3xl font-semibold">Les questions qui reviennent</p>
         <div class="faq-container">
-            <!-- Question 1 -->
+        {% for question in questions %}
             <div class="faq-question flex flex-col mt-8 pb-6 border-b-2 border-blue-techno-base rounded-3xl p-4 shadow-lg">
                 <div class="flex group cursor-pointer items-center">
-                    <p class="ml-4 font-serif w-full text-xl md:text-2xl mr-6 text-center md:text-left">Comment fonctionne une installation photovoltaïque ?</p>
+                    <p class="ml-4 font-serif w-full text-xl md:text-2xl text-center md:text-left">{{ question.title }}</p>
                     <div class="arrow-wrapper">
                         <svg class="toggle-icon group-hover:text-blue-techno-base transition-all duration-300 ease-in-out mr-8" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
                             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m19 9l-7 6l-1.75-1.5M5 9l2.333 2"/>
@@ -16,25 +16,10 @@
                     </div>
                 </div>
                 <div class="answer overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0;">
-                    <p class="font-serif p-4 flex text-justify md:mr-16">Les panneaux photovoltaïques convertissent la lumière du soleil en électricité grâce aux cellules photovoltaïques. Cette énergie peut être utilisée immédiatement ou stockée pour plus tard.</p>
+                    <p class="font-serif p-4 text-justify md:mr-16">{{ question.answer }}</p>
                 </div>
             </div>
-
-            <!-- Question 2 -->
-            <div class="faq-question flex flex-col mt-8 pb-6 border-b-2 border-blue-techno-base rounded-3xl p-4 shadow-lg">
-                <div class="flex group cursor-pointer items-center">
-                    <p class="ml-4 font-serif w-full text-xl md:text-2xl text-center md:text-left">Quelle est la durée de vie moyenne des panneaux solaires ?</p>
-                    <div class="arrow-wrapper">
-                        <svg class="toggle-icon group-hover:text-blue-techno-base transition-all duration-300 ease-in-out mr-8" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m19 9l-7 6l-1.75-1.5M5 9l2.333 2"/>
-                        </svg>
-                    </div>
-                </div>
-                <div class="answer overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0;">
-                    <p class="font-serif p-4 text-justify md:mr-16">La durée de vie des panneaux solaires est généralement de 25 à 30 ans. Cependant, leur rendement peut diminuer légèrement au fil du temps, en moyenne d'environ 0,5% par an.</p>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 {% endblock %}
 

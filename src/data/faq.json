@@ -1,0 +1,12 @@
+{
+  "faq": [
+    {
+      "title": "Comment fonctionne une installation photovoltaïque ?",
+      "answer": "Les panneaux photovoltaïques convertissent la lumière du soleil en électricité grâce aux cellules photovoltaïques. Cette énergie peut être utilisée immédiatement ou stockée pour plus tard."
+    },
+    {
+      "title": "Quelle est la durée de vie moyenne des panneaux solaires ?",
+      "answer": "La durée de vie des panneaux solaires est généralement de 25 à 30 ans. Cependant, leur rendement peut diminuer légèrement au fil du temps, en moyenne d'environ 0,5% par an."
+    }
+  ]
+}

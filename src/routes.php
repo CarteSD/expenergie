@@ -104,3 +104,8 @@ $router->post('/contact', function () use ($loader, $twig) {
     }
     exit;
 });
+
+$router->get('/installations', function () use ($twig, $loader) {
+   echo $twig->render('/installations.twig');
+   exit;
+});

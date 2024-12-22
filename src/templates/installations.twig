@@ -6,7 +6,7 @@
         <p class="font-serif text-3xl font-semibold">Installations effectuées</p>
         <p class="font-serif text-justify font-semibold text-xl">Vous avez du mal à projeter votre projet sur votre maison ?</p>
         <p class="font-serif text-justify">Retrouvez sur cette page des exemples d'études & installations effectuées par Expenergie auparavant.</p>
-        <div class="grid grid-cols-2 w-full gap-8 p-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 w-full gap-8 p-4">
             {% for installation in installations %}
                 {% if installation.title != '' %}
                     <div class="col-span-1 shadow-lg rounded-2xl p-8 w-full">

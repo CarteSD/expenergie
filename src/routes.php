@@ -106,6 +106,9 @@ $router->post('/contact', function () use ($loader, $twig) {
 });
 
 $router->get('/installations', function () use ($twig, $loader) {
-   echo $twig->render('/installations.twig');
-   exit;
+    $installations = json_decode(file_get_contents(__DIR__ . '/data/installations.json'), true);
+    echo $twig->render('/installations.twig', [
+        "installations" => $installations['installations'],
+    ]);
+    exit;
 });

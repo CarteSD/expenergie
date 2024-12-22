@@ -7,47 +7,24 @@
         <p class="font-serif text-justify font-semibold text-xl">Vous avez du mal à projeter votre projet sur votre maison ?</p>
         <p class="font-serif text-justify">Retrouvez sur cette page des exemples d'études & installations effectuées par Expenergie auparavant.</p>
         <div class="grid grid-cols-2 w-full gap-8 p-4">
-            <div class="col-span-1 shadow-lg rounded-2xl p-8 w-full">
-                <p class="font-serif font-semibold text-xl">Installation n°1</p>
-                <div class="flex gap-2 items-center mt-3">
-                    <img class="w-1/3 rounded-xl m-2" src="" alt="">
-                    <div class="flex flex-col gap-4">
-                        <p class="font-serif text-justify">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget felis vitae sem condimentum sodales. Morbi vitae urna id mauris feugiat tristique. Quisque non odio at orci dictum blandit id at metus. Phasellus in ligula vel metus sodales scelerisque. Donec sed viverra ligula.
+            {% for installation in installations %}
+                {% if installation.title != '' %}
+                    <div class="col-span-1 shadow-lg rounded-2xl p-8 w-full">
+                        <p class="font-serif font-semibold text-xl">{{ installation.title }}</p>
+                        <div class="flex gap-2 items-center mt-3">
+                            <img class="w-1/3 rounded-xl m-2" src="assets/img/${{ installation.pathImg }}" alt="">
+                            <div class="flex flex-col gap-4">
+                                <p class="font-serif text-justify">
+                                    {{ installation.description }}
+                                </p>
+                            </div>
+                        </div>
+                        <p class="font-serif">
+                            {{ installation.details }}
                         </p>
-                        <div id="installation" onclick="showModal(this)" class="w-fit py-1 px-3 rounded-full border-blue-techno-base border-2 font-semibold text-blue-techno-base hover:bg-blue-techno-base hover:text-platinum-base ease-in-out transition-all duration-500 font-serif hover:cursor-pointer    ">Voir les détails</div>
                     </div>
-                </div>
-            </div>
+                {% endif %}
+            {% endfor %}
         </div>
     </div>
-
-    <div onclick="closeModal()" id="modal-background" class="hidden opacity-70 fixed inset-0 bg-charcoal-base z-40 duration-1000 transition-all ease-in-out transform"></div>
-
-    <div id="modal_installation"
-         class="modal hidden w-full sm:w-1/2 bg-platinum-base fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all transform duration-500 p-5 rounded-2xl z-50 shadow-2xl">
-        <div class="flex flex-col gap-5 my-5">
-            <div class="font-serif text-2xl flex justify-center">
-                Installation
-            </div>
-            <p class="font-serif text-justify">
-                <span class="font-semibold text-xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit !</span><br>
-                <br>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget felis vitae sem condimentum sodales. Morbi vitae urna id mauris feugiat tristique. Quisque non odio at orci dictum blandit id at metus. Phasellus in ligula vel metus sodales scelerisque. Donec sed viverra ligula.
-            </p>
-            <div class="flex m-2 items-center gap-2">
-                <svg class="text-platinum-4 border-2" xmlns="http://www.w3.org/2000/svg" width="2.5em" height="2.5em" viewBox="0 0 24 24"><g fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M12 17v-6"/><circle cx="1" cy="1" r="1" fill="currentColor" transform="matrix(1 0 0 -1 11 9)"/><path stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg>
-                <p class="italic text-platinum-4 font-serif">Pour plus d'informations, contactez-nous à l'adresse e-mail <a class="underline" href="mailto:sebastien.desessard@expenergie.fr">sebastien.desessard@expenergie.fr</a> ou par téléphone au <span class="underline">05.58.07.71.69</span></p>
-            </div>
-            <div class="flex gap-3 justify-end">
-                <div onclick="closeModal()" class="rounded-2xl border-2 border-blue-techno-base py-1 px-3 font-serif text-blue-techno-base hover:cursor-pointer hover:bg-blue-techno-base hover:text-platinum-base ease-in-out transition-all duration-500">
-                    Fermer
-                </div>
-            </div>
-        </div>
-    </div>
-{% endblock %}
-
-{% block scripts %}
-    <script src="assets/js/installations.js"></script>
 {% endblock %}

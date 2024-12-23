@@ -92,4 +92,15 @@ class Controller
     {
         $this->post = $post;
     }
+
+    public function call(string $method, ?array $args = []) : mixed {
+        if (!method_exists($this, $method)) {
+            throw new Exception('La méthode ' . $method . ' n\'existe pas dans le contrôleur ' . get_class($this));
+        }
+        try {
+            return $this->{$method}(...array_values($args));
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
 }

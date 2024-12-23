@@ -1,6 +1,6 @@
 <?php
 /**
- * @file     ControllerHome.class.php
+ * @file     ControllerAbout.class.php
  * @author   Estéban DESESSARD
  * @brief
  * @details

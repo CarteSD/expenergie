@@ -59,7 +59,9 @@ Pour exécuter ce projet localement, vous aurez besoin de :
 
     expenergie/
     ├── src/           
-    │   └── templates/ # Templates Twig
+    │   ├── templates/   # Templates Twig
+    │   ├── Controllers/ # Contrôleurs
+    │   └── Models/      # Modèles
     ├── public/        
     │   └── assets/
     │       ├── css/   # Fichiers CSS

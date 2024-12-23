@@ -10,10 +10,10 @@
 
 class Question {
     private ?int $id;
-    private string $title;
-    private string $answer;
+    private ?string $title;
+    private ?string $answer;
 
-    public function __construct($id, $question, $answer) {
+    public function __construct(?int $id = null, ?string $question = null, ?string $answer = null) {
         $this->id = $id;
         $this->title = $question;
         $this->answer = $answer;
@@ -23,11 +23,11 @@ class Question {
         return $this->id;
     }
 
-    public function getTitle() : string {
+    public function getTitle() : ?string {
         return $this->title;
     }
 
-    public function getAnswer() : string {
+    public function getAnswer() : ?string {
         return $this->answer;
     }
 
@@ -35,11 +35,11 @@ class Question {
         $this->id = $id;
     }
 
-    public function setTitle(string $title) : void {
+    public function setTitle(?string $title) : void {
         $this->title = $title;
     }
 
-    public function setAnswer(string $answer) : void {
+    public function setAnswer(?string $answer) : void {
         $this->answer = $answer;
     }
 }

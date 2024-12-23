@@ -41,7 +41,7 @@ $router->get('/faq', function () use ($loader, $twig) {
 });
 
 $router->get('/contact', function () use ($loader, $twig) {
-    echo $twig->render('contact.twig');
+    ControllerFactory::getController("contact", $loader, $twig)->call("showContactPage");
     exit;
 });
 

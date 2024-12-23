@@ -9,9 +9,9 @@
  */
 
 class Question {
-    private $id;
-    private $title;
-    private $answer;
+    private ?int $id;
+    private string $title;
+    private string $answer;
 
     public function __construct($id, $question, $answer) {
         $this->id = $id;
@@ -19,27 +19,27 @@ class Question {
         $this->answer = $answer;
     }
 
-    public function getId() {
+    public function getId() : ?int {
         return $this->id;
     }
 
-    public function getTitle() {
+    public function getTitle() : string {
         return $this->title;
     }
 
-    public function getAnswer() {
+    public function getAnswer() : string {
         return $this->answer;
     }
 
-    public function setId($id) {
+    public function setId(?int $id) : void {
         $this->id = $id;
     }
 
-    public function setTitle($title) {
+    public function setTitle(string $title) : void {
         $this->title = $title;
     }
 
-    public function setAnswer($answer) {
+    public function setAnswer(string $answer) : void {
         $this->answer = $answer;
     }
 }

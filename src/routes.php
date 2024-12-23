@@ -21,7 +21,7 @@ $router->get('/', function () use ($loader, $twig) {
 });
 
 $router->get('/offres', function () use ($loader, $twig) {
-    echo $twig->render('offres.twig');
+    ControllerFactory::getController("offres", $loader, $twig)->call("showOffersPage");
     exit;
 });
 

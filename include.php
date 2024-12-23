@@ -21,6 +21,8 @@ require_once __DIR__ . '/config/db.php';
 
 require_once __DIR__ . '/src/Models/Router.class.php';
 require_once __DIR__ . '/src/Models/Db.class.php';
+require_once __DIR__ . '/src/Models/Question.class.php';
+require_once __DIR__ . '/src/Models/QuestionDAO.class.php';
 
 require_once __DIR__ . '/src/Controllers/Controller.class.php';
 require_once __DIR__ . '/src/Controllers/ControllerFactory.class.php';

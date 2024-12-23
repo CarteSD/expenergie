@@ -31,7 +31,7 @@ $router->get('/services', function () use ($loader, $twig) {
 });
 
 $router->get('/about', function () use ($loader, $twig) {
-    echo $twig->render('about.twig');
+    ControllerFactory::getController("about", $loader, $twig)->call("showAboutPage");
     exit;
 });
 

@@ -51,9 +51,6 @@ $router->post('/contact', function () use ($loader, $twig) {
 });
 
 $router->get('/installations', function () use ($twig, $loader) {
-    $installations = json_decode(file_get_contents(__DIR__ . '/data/installations.json'), true);
-    echo $twig->render('/installations.twig', [
-        "installations" => $installations['installations'],
-    ]);
+    ControllerFactory::getController("installation", $loader, $twig)->call("showInstallationsPage");
     exit;
 });

@@ -9,12 +9,14 @@
  */
 
 global $loader, $twig;
+
+use Controllers\ControllerFactory;
 use PHPMailer\PHPMailer\PHPMailer;
 
 $router = Router::getInstance();
 
 $router->get('/', function () use ($loader, $twig) {
-    echo $twig->render('home.twig');
+    ControllerFactory::getController("home", $loader, $twig)->call("showHomePage");
     exit;
 });
 

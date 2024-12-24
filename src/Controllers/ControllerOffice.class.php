@@ -10,6 +10,8 @@
 
 namespace Controllers;
 
+use InstallationDAO;
+use QuestionDAO;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
@@ -37,6 +39,13 @@ class ControllerOffice extends Controller
     }
 
     public function showOfficePage() {
-        echo $this->getTwig()->render('office.twig');
+        $questionManager = new QuestionDAO($this->getPdo());
+        $questions = $questionManager->findAll();
+        $installationManager = new InstallationDAO($this->getPdo());
+        $installations = $installationManager->findAll();
+        echo $this->getTwig()->render('office.twig', [
+            'questions' => $questions,
+            'installations' => $installations
+        ]);
     }
 }

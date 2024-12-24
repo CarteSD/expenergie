@@ -30,7 +30,7 @@ class ControllerOffice extends Controller
 
         if ($identifiant === OFFICE_ID && password_verify($password, OFFICE_PSD)) {
             $_SESSION['loggedIn'] = true;
-            $this->showOfficePage();
+            header('Location: /office');
         } else {
             echo $this->getTwig()->render('login.twig', ['error' => 'Identifiant ou mot de passe incorrect']);
         }

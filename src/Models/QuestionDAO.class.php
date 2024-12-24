@@ -28,7 +28,7 @@ class QuestionDAO
     }
 
     public function hydrate(?array $datas) : Question {
-        return new Question($datas['id'], $datas['title'], $datas['answer']);
+        return new Question($datas['id'], $datas['title'], $datas['answer'], $datas['link']);
     }
 
     public function hydrateMany(?array $datas) : array {
@@ -52,5 +52,14 @@ class QuestionDAO
         $query = $this->pdo->prepare('DELETE FROM ' . DB_PREFIX . 'faq WHERE id = :id');
         $query->bindParam(':id', $id);
         return $query->execute();
+    }
+
+    public function findById($id)
+    {
+        $query = $this->pdo->prepare('SELECT * FROM ' . DB_PREFIX . 'faq WHERE id = 11');
+        $query->execute();
+        $query->setFetchMode(PDO::FETCH_ASSOC);
+        $question = $query->fetch();
+        return $this->hydrate($question);
     }
 }

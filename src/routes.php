@@ -93,3 +93,12 @@ $router->delete('/office/question/delete/:idQuestion', function ($idQuestion) us
     ControllerFactory::getController("office", $loader, $twig)->call("deleteQuestion", [$idQuestion]);
     exit;
 });
+
+$router->get('/office/question/get/:idQuestion', function ($idQuestion) use ($twig, $loader) {
+    if (!isset($_SESSION['loggedIn']) || !$_SESSION['loggedIn']) {
+        header('Location: /login');
+        exit;
+    }
+    ControllerFactory::getController("office", $loader, $twig)->call("getQuestion", [$idQuestion]);
+    exit;
+});

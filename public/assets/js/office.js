@@ -22,10 +22,10 @@ document.querySelectorAll('.faq-question').forEach(question => {
     });
 });
 
-function showModal(e) {
+function showModalSuppression(id) {
     let background = document.getElementById('modal-background');
     let modal = document.getElementById(`modalSuppression`);
-    document.getElementById('idQuestion').value = e;
+    document.getElementById('idQuestionSuppr').value = id;
     modal.classList.remove("hidden");
     background.classList.remove("hidden");
 }
@@ -42,7 +42,7 @@ function closeModal() {
 }
 
 function deleteQuestion(e) {
-    let idQuestion = document.getElementById('idQuestion').value;
+    let idQuestion = document.getElementById('idQuestionSuppr').value;
     const xhr = new XMLHttpRequest();
     xhr.open("DELETE", `/office/question/delete/${idQuestion}`, true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -52,4 +52,30 @@ function deleteQuestion(e) {
             location.reload();
         }
     };
+}
+
+function showModalEdition(id) {
+    let background = document.getElementById('modal-background');
+    let modal = document.getElementById(`modalEdition`);
+    let title = document.getElementById('titleQuestionEdit');
+    let answer = document.getElementById('answerQuestionEdit');
+    let link = document.getElementById('linkQuestionEdit');
+
+    document.getElementById('idQuestionEdit').value = id;
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", `/office/question/get/${id}`, true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            let question = JSON.parse(xhr.responseText);
+            title.value = question.title;
+            answer.value = question.answer;
+            link.value = question.link;
+        }
+    };
+
+    modal.classList.remove("hidden");
+    background.classList.remove("hidden");
 }

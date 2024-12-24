@@ -57,4 +57,15 @@ class ControllerOffice extends Controller
             echo json_encode(['success' => false]);
         }
     }
+
+    public function getQuestion($id) {
+        $questionManager = new QuestionDAO($this->getPdo());
+        $question = $questionManager->findById($id);
+        echo json_encode([
+            'id' => $question->getId(),
+            'title' => $question->getTitle(),
+            'answer' => $question->getAnswer(),
+            'link' => $question->getLink()
+        ]);
+    }
 }

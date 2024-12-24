@@ -42,7 +42,6 @@
             <p class="font-serif text-2xl font-semibold text-center">
                 Page <a href="/faq" class="redirect" target="_blank">"FàQ"</a>
             </p>
-            <hr>
             <div class="flex flex-col gap-2">
                 <div class="flex justify-between">
                     <div class="font-serif text-xl">
@@ -59,13 +58,13 @@
                                 {{ question.title }}
                             </div>
                             <div class="flex gap-2 justify-between">
-                                <div class="text-platinum-4 hover:text-yellow-400 hover:scale-105 transition-all ease-in-out duration-300 hover:cursor-pointer flex items-center">
+                                <div class="text-platinum-4 hover:text-yellow-400 hover:scale-105 transition-all ease-in-out duration-300 hover:cursor-pointer flex items-center" onclick="showModalEdition({{ question.id }})">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                         <path fill="currentColor" d="m14.06 9l.94.94L5.92 19H5v-.92zm3.6-6c-.25 0-.51.1-.7.29l-1.83 1.83l3.75 3.75l1.83-1.83c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.2-.2-.45-.29-.71-.29m-3.6 3.19L3 17.25V21h3.75L17.81 9.94z" />
                                     </svg>
                                     <p class="font-serif">Modifier</p>
                                 </div>
-                                <div class="text-platinum-4 hover:text-red-400 hover:scale-105 transition-all ease-in-out duration-300 hover:cursor-pointer flex items-center" onclick="showModal({{ question.id }})">
+                                <div class="text-platinum-4 hover:text-red-400 hover:scale-105 transition-all ease-in-out duration-300 hover:cursor-pointer flex items-center" onclick="showModalSuppression({{ question.id }})">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                         <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16m-10 4v6m4-6v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3" />
                                     </svg>
@@ -87,7 +86,6 @@
             <p class="font-serif text-2xl font-semibold text-center">
                 Page <a href="/installations" class="redirect" target="_blank">"Installations"</a>
             </p>
-            <hr>
         </div>
     </div>
 </div>
@@ -97,13 +95,14 @@
 <div id="modalSuppression"
      class="modal hidden w-full sm:w-1/2 bg-platinum-base fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all transform duration-500 p-5 rounded-2xl z-50 shadow-2xl">
     <div class="flex flex-col gap-5 my-5">
+        <p class="font-serif text-2xl font-semibold text-center">Supprimer une question</p>
         <p class="font-serif text-xl font-semibold">Êtes-vous sûr de vouloir supprimer cette question ?</p>
         <p class="font-serif">Cette action est irréversible.</p>
         <div class="flex gap-3 justify-end">
             <div onclick="deleteQuestion(this)" class="rounded-2xl border-2 border-red-500 py-1 px-3 font-serif text-red-500 hover:cursor-pointer hover:bg-red-500 hover:text-platinum-base ease-in-out transition-all duration-500">
                 Supprimer
             </div>
-            <input id="idQuestion" value="" hidden>
+            <input id="idQuestionSuppr" value="" hidden>
             <div onclick="closeModal()" class="rounded-2xl border-2 border-blue-techno-base py-1 px-3 font-serif text-blue-techno-base hover:cursor-pointer hover:bg-blue-techno-base hover:text-platinum-base ease-in-out transition-all duration-500">
                 Fermer
             </div>
@@ -111,6 +110,34 @@
     </div>
 </div>
 
+<div id="modalEdition"
+     class="modal hidden w-full sm:w-1/2 bg-platinum-base fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all transform duration-500 p-5 rounded-2xl z-50 shadow-2xl">
+    <div class="flex flex-col gap-5 my-5">
+        <p class="font-serif text-2xl font-semibold text-center">Modifier une question</p>
+        <hr>
+        <form method="POST" class="flex flex-col gap-4">
+            <label for="titleQuestionEdit" class="font-serif text-xl font-semibold">Question</label>
+            <input type="text" id="titleQuestionEdit" name="title" class="rounded-2xl border-2 border-platinum-3 p-2 font-serif" required>
+
+            <label for="answerQuestionEdit" class="font-serif text-xl font-semibold">Réponse</label>
+            <textarea id="answerQuestionEdit" name="answer" class="rounded-2xl border-2 border-platinum-3 p-2 font-serif" required></textarea>
+
+            <label for="linkQuestionEdit" class="font-serif text-xl font-semibold">Lien</label>
+            <input type="text" id="linkQuestionEdit" name="link" class="rounded-2xl border-2 border-platinum-3 p-2 font-serif">
+
+            <input id="idQuestion" name="idQuestion" value="" hidden>
+        </form>
+        <div class="flex gap-3 justify-end">
+            <button type="submit" class="rounded-2xl border-2 border-green-500 py-1 px-3 font-serif text-green-500 hover:cursor-pointer hover:bg-green-500 hover:text-platinum-base ease-in-out transition-all duration-500">
+                Modifier
+            </button>
+            <input id="idQuestionEdit" value="" hidden>
+            <div onclick="closeModal()" class="rounded-2xl border-2 border-blue-techno-base py-1 px-3 font-serif text-blue-techno-base hover:cursor-pointer hover:bg-blue-techno-base hover:text-platinum-base ease-in-out transition-all duration-500">
+                Fermer
+            </div>
+        </div>
+    </div>
+</div>
 
 <footer class="flex flex-col g-2 items-center justify-center p-6 font-serif">
     <p>© 2024 Expenergie - Tous droits réservés</p>

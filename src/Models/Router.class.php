@@ -39,6 +39,11 @@ class Router {
         $this->addRoute('POST', $url, $target);
     }
 
+    public function delete(string $url, callable $target): void
+    {
+        $this->addRoute('DELETE', $url, $target);
+    }
+
     public function matchRoute(): void
     {
         $method = $_SERVER['REQUEST_METHOD'];

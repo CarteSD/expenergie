@@ -54,3 +54,8 @@ $router->get('/installations', function () use ($twig, $loader) {
     ControllerFactory::getController("installation", $loader, $twig)->call("showInstallationsPage");
     exit;
 });
+
+$router->get('/login', function () use ($twig, $loader) {
+    ControllerFactory::getController("office", $loader, $twig)->call("showLoginPage");
+    exit;
+});

@@ -13,10 +13,13 @@ class Question {
     private ?string $title;
     private ?string $answer;
 
-    public function __construct(?int $id = null, ?string $question = null, ?string $answer = null) {
+    private ?string $link;
+
+    public function __construct(?int $id = null, ?string $question = null, ?string $answer = null, ?string $link = null) {
         $this->id = $id;
         $this->title = $question;
         $this->answer = $answer;
+        $this->link = $link;
     }
 
     public function getId() : ?int {
@@ -41,5 +44,13 @@ class Question {
 
     public function setAnswer(?string $answer) : void {
         $this->answer = $answer;
+    }
+
+    public function getLink() : ?string {
+        return $this->link;
+    }
+
+    public function setLink(?string $link) : void {
+        $this->link = $link;
     }
 }

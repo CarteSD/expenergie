@@ -102,3 +102,14 @@ $router->get('/office/question/get/:idQuestion', function ($idQuestion) use ($tw
     ControllerFactory::getController("office", $loader, $twig)->call("getQuestion", [$idQuestion]);
     exit;
 });
+
+$router->post('/office', function () use ($twig, $loader) {
+    if (!isset($_SESSION['loggedIn']) || !$_SESSION['loggedIn']) {
+        header('Location: /login');
+        exit;
+    }
+    if (isset($_POST['titleQuestionEdit']) && $_POST['titleQuestionEdit'] != "" && isset($_POST['answerQuestionEdit']) && $_POST['answerQuestionEdit'] != "") {
+        ControllerFactory::getController("office", $loader, $twig)->call("editQuestion", [$_POST['idQuestionEdit'], $_POST['titleQuestionEdit'], $_POST['answerQuestionEdit'], $_POST['linkQuestionEdit']]);
+    }
+    exit;
+});

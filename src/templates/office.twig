@@ -117,25 +117,25 @@
         <hr>
         <form method="POST" class="flex flex-col gap-4">
             <label for="titleQuestionEdit" class="font-serif text-xl font-semibold">Question</label>
-            <input type="text" id="titleQuestionEdit" name="title" class="rounded-2xl border-2 border-platinum-3 p-2 font-serif" required>
+            <input type="text" id="titleQuestionEdit" name="titleQuestionEdit" class="rounded-2xl border-2 border-platinum-3 p-2 font-serif" required>
 
             <label for="answerQuestionEdit" class="font-serif text-xl font-semibold">Réponse</label>
-            <textarea id="answerQuestionEdit" name="answer" class="rounded-2xl border-2 border-platinum-3 p-2 font-serif" required></textarea>
+            <textarea id="answerQuestionEdit" name="answerQuestionEdit" class="rounded-2xl border-2 border-platinum-3 p-2 font-serif" required></textarea>
 
             <label for="linkQuestionEdit" class="font-serif text-xl font-semibold">Lien</label>
-            <input type="text" id="linkQuestionEdit" name="link" class="rounded-2xl border-2 border-platinum-3 p-2 font-serif">
+            <input type="text" id="linkQuestionEdit" name="linkQuestionEdit" class="rounded-2xl border-2 border-platinum-3 p-2 font-serif">
 
-            <input id="idQuestion" name="idQuestion" value="" hidden>
-        </form>
-        <div class="flex gap-3 justify-end">
-            <button type="submit" class="rounded-2xl border-2 border-green-500 py-1 px-3 font-serif text-green-500 hover:cursor-pointer hover:bg-green-500 hover:text-platinum-base ease-in-out transition-all duration-500">
-                Modifier
-            </button>
-            <input id="idQuestionEdit" value="" hidden>
-            <div onclick="closeModal()" class="rounded-2xl border-2 border-blue-techno-base py-1 px-3 font-serif text-blue-techno-base hover:cursor-pointer hover:bg-blue-techno-base hover:text-platinum-base ease-in-out transition-all duration-500">
-                Fermer
+            <input id="idQuestionEdit" name="idQuestionEdit" value="" hidden>
+            <div class="flex gap-3 justify-end">
+                <button type="submit" class="rounded-2xl border-2 border-green-500 py-1 px-3 font-serif text-green-500 hover:cursor-pointer hover:bg-green-500 hover:text-platinum-base ease-in-out transition-all duration-500">
+                    Modifier
+                </button>
+                <input id="idQuestionEdit" value="" hidden>
+                <div onclick="closeModal()" class="rounded-2xl border-2 border-blue-techno-base py-1 px-3 font-serif text-blue-techno-base hover:cursor-pointer hover:bg-blue-techno-base hover:text-platinum-base ease-in-out transition-all duration-500">
+                    Fermer
+                </div>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 

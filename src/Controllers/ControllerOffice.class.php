@@ -68,4 +68,16 @@ class ControllerOffice extends Controller
             'link' => $question->getLink()
         ]);
     }
+
+    public function editQuestion($id, $title, $answer, $link) {
+        $questionManager = new QuestionDAO($this->getPdo());
+        $question = $questionManager->findById($id);
+        $question->setTitle($title);
+        $question->setAnswer($answer);
+        $question->setLink($link);
+        if ($questionManager->update($question)) {
+            header('Location: /office');
+            exit;
+        }
+    }
 }

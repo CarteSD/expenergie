@@ -62,4 +62,18 @@ class QuestionDAO
         $question = $query->fetch();
         return $this->hydrate($question);
     }
+
+    public function update(Question $question)
+    {
+        $query = $this->pdo->prepare('UPDATE ' . DB_PREFIX . 'faq SET title = :title, answer = :answer, link = :link WHERE id = :id');
+        $id = $question->getId();
+        $query->bindParam(':id', $id);
+        $title = $question->getTitle();
+        $query->bindParam(':title', $title);
+        $answer = $question->getAnswer();
+        $query->bindParam(':answer', $answer);
+        $link = $question->getLink();
+        $query->bindParam(':link', $link);
+        return $query->execute();
+    }
 }

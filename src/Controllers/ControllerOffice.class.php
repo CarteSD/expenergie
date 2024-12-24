@@ -23,4 +23,15 @@ class ControllerOffice extends Controller
     public function showLoginPage() {
         echo $this->getTwig()->render('login.twig');
     }
+
+    public function signIn() {
+        $identifiant = $_POST['identifiant'];
+        $password = $_POST['password'];
+
+        if ($identifiant === OFFICE_ID && password_verify($password, OFFICE_PSD)) {
+            echo $this->getTwig()->render('office.twig');
+        } else {
+            echo $this->getTwig()->render('login.twig', ['error' => 'Identifiant ou mot de passe incorrect']);
+        }
+    }
 }

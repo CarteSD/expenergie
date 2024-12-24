@@ -59,3 +59,8 @@ $router->get('/login', function () use ($twig, $loader) {
     ControllerFactory::getController("office", $loader, $twig)->call("showLoginPage");
     exit;
 });
+
+$router->post('/login', function () use ($twig, $loader) {
+    ControllerFactory::getController("office", $loader, $twig)->call("signIn");
+    exit;
+});

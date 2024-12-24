@@ -77,3 +77,10 @@ $router->get('/office', function () use ($twig, $loader) {
     ControllerFactory::getController("office", $loader, $twig)->call("showOfficePage");
     exit;
 });
+
+$router->get('/logout', function () {
+    session_unset();
+    session_destroy();
+    header('Location: /login');
+    exit;
+});

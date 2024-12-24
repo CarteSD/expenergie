@@ -46,4 +46,11 @@ class QuestionDAO
         $questions = $query->fetchAll();
         return $this->hydrateMany($questions);
     }
+
+    public function delete($id) : bool
+    {
+        $query = $this->pdo->prepare('DELETE FROM ' . DB_PREFIX . 'faq WHERE id = :id');
+        $query->bindParam(':id', $id);
+        return $query->execute();
+    }
 }

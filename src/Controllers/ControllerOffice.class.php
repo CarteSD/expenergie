@@ -48,4 +48,13 @@ class ControllerOffice extends Controller
             'installations' => $installations
         ]);
     }
+
+    public function deleteQuestion($id) {
+        $questionManager = new QuestionDAO($this->getPdo());
+        if ($questionManager->delete($id)) {
+            echo json_encode(['success' => true]);
+        } else {
+            echo json_encode(['success' => false]);
+        }
+    }
 }

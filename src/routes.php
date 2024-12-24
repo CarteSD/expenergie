@@ -56,11 +56,24 @@ $router->get('/installations', function () use ($twig, $loader) {
 });
 
 $router->get('/login', function () use ($twig, $loader) {
+    if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']) {
+        header('Location: /office');
+        exit;
+    }
     ControllerFactory::getController("office", $loader, $twig)->call("showLoginPage");
     exit;
 });
 
 $router->post('/login', function () use ($twig, $loader) {
     ControllerFactory::getController("office", $loader, $twig)->call("signIn");
+    exit;
+});
+
+$router->get('/office', function () use ($twig, $loader) {
+    if (!isset($_SESSION['loggedIn']) || !$_SESSION['loggedIn']) {
+        header('Location: /login');
+        exit;
+    }
+    ControllerFactory::getController("office", $loader, $twig)->call("showOfficePage");
     exit;
 });

@@ -29,9 +29,14 @@ class ControllerOffice extends Controller
         $password = $_POST['password'];
 
         if ($identifiant === OFFICE_ID && password_verify($password, OFFICE_PSD)) {
-            echo $this->getTwig()->render('office.twig');
+            $_SESSION['loggedIn'] = true;
+            $this->showOfficePage();
         } else {
             echo $this->getTwig()->render('login.twig', ['error' => 'Identifiant ou mot de passe incorrect']);
         }
+    }
+
+    public function showOfficePage() {
+        echo $this->getTwig()->render('office.twig');
     }
 }

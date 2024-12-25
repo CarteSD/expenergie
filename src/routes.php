@@ -113,7 +113,7 @@ $router->post('/office', function () use ($twig, $loader) {
         ControllerFactory::getController("office", $loader, $twig)->call("editQuestion", [$_POST['idQuestionEdit'], $_POST['titleQuestionEdit'], $_POST['answerQuestionEdit'], $_POST['linkQuestionEdit']]);
     }
     if (isset($_POST['titleQuestionAdd']) && $_POST['titleQuestionAdd'] != "" && isset($_POST['answerQuestionAdd']) && $_POST['answerQuestionAdd'] != "") {
-        ControllerFactory::getController("office", $loader, $twig)->call("addQuestion", [$_POST['titleQuestionAdd'], $_POST['answerQuestionAdd'], $_POST['linkQuestionAdd'], $_POST['linkQuestionAdd']]);
+        ControllerFactory::getController("office", $loader, $twig)->call("addQuestion", [$_POST['titleQuestionAdd'], $_POST['answerQuestionAdd'], $_POST['linkQuestionAdd'] ?? null]);
     }
     exit;
 });

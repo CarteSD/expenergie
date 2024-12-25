@@ -11,6 +11,7 @@
 namespace Controllers;
 
 use InstallationDAO;
+use Question;
 use QuestionDAO;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
@@ -87,6 +88,15 @@ class ControllerOffice extends Controller
             echo json_encode(['success' => true]);
         } else {
             echo json_encode(['success' => false]);
+        }
+    }
+
+    public function addQuestion($title, $answer, $link) {
+        $questionManager = new QuestionDAO($this->getPdo());
+        $question = new Question(null, $title, $answer, $link);
+        if ($questionManager->add($question)) {
+            header('Location: /office');
+            exit;
         }
     }
 }

@@ -77,4 +77,16 @@ class QuestionDAO
         $query->bindParam(':link', $link);
         return $query->execute();
     }
+
+    public function add(Question $question)
+    {
+        $query = $this->pdo->prepare('INSERT INTO ' . DB_PREFIX . 'faq (title, answer, link) VALUES (:title, :answer, :link)');
+        $title = $question->getTitle();
+        $query->bindParam(':title', $title);
+        $answer = $question->getAnswer();
+        $query->bindParam(':answer', $answer);
+        $link = $question->getLink();
+        $query->bindParam(':link', $link);
+        return $query->execute();
+    }
 }

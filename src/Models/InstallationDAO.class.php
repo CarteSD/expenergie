@@ -53,4 +53,14 @@ class InstallationDAO
         $query->bindParam(':id', $id);
         return $query->execute();
     }
+
+    public function findById($id)
+    {
+        $query = $this->pdo->prepare('SELECT * FROM ' . DB_PREFIX . 'installation WHERE id = :id');
+        $query->bindParam(':id', $id);
+        $query->execute();
+        $query->setFetchMode(PDO::FETCH_ASSOC);
+        $installation = $query->fetch();
+        return $this->hydrate($installation);
+    }
 }

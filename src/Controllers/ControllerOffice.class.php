@@ -99,4 +99,16 @@ class ControllerOffice extends Controller
             exit;
         }
     }
+
+    public function getInstallation($id) {
+        $installationManager = new InstallationDAO($this->getPdo());
+        $installation = $installationManager->findById($id);
+        echo json_encode([
+            'id' => $installation->getId(),
+            'title' => $installation->getTitle(),
+            'description' => $installation->getDescription(),
+            'details' => $installation->getDetails(),
+            'imgPath' => $installation->getImgPath()
+        ]);
+    }
 }

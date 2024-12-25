@@ -126,3 +126,12 @@ $router->delete('/office/installation/delete/:idInstallation', function ($idInst
     ControllerFactory::getController("office", $loader, $twig)->call("deleteInstallation", [$idInstallation]);
     exit;
 });
+
+$router->get('/office/installation/get/:idInstallation', function ($idInstallation) use ($twig, $loader) {
+    if (!isset($_SESSION['loggedIn']) || !$_SESSION['loggedIn']) {
+        header('Location: /login');
+        exit;
+    }
+    ControllerFactory::getController("office", $loader, $twig)->call("getInstallation", [$idInstallation]);
+    exit;
+});

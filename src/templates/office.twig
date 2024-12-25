@@ -241,6 +241,43 @@
     </div>
 </div>
 
+<div id="modalEditionInstallation"
+     class="modal hidden w-full sm:w-1/2 bg-platinum-base fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all transform duration-500 p-5 rounded-2xl z-50 shadow-2xl">
+    <div class="flex flex-col gap-5 my-5">
+        <p class="font-serif text-2xl font-semibold text-center">Modifier une installation</p>
+        <hr>
+        <form method="POST" class="flex flex-col gap-4">
+            <label for="titleInstallationEdit" class="font-serif text-xl font-semibold">Titre</label>
+            <input type="text" id="titleInstallationEdit" name="titleInstallationEdit" class="rounded-2xl border-2 border-platinum-3 p-2 font-serif" required>
+
+            <label for="descriptionInstallationEdit" class="font-serif text-xl font-semibold">Description courte</label>
+            <input id="descriptionInstallationEdit" name="descriptionInstallationEdit" class="rounded-2xl border-2 border-platinum-3 p-2 font-serif" required>
+
+            <label for="detailsInstallationEdit" class="font-serif text-xl font-semibold">Détails</label>
+            <textarea id="detailsInstallationEdit" name="detailsInstallationEdit" class="rounded-2xl border-2 border-platinum-3 p-2 font-serif h-24" required></textarea>
+
+            <div class="flex flex-col">
+                <label for="imageInstallationEdit" class="font-serif text-xl font-semibold">Image <span class="italic">(facultatif)</span></label>
+                <p class="font-serif">Laissez vide si inchangé</p>
+                <input type="file" id="imageInstallationEdit" name="imageInstallationEdit" class="rounded-2xl border-2 border-platinum-3 p-2 font-serif" accept="image/*">
+            </div>
+
+
+            <input id="idInstallationEdit" name="idInstallationEdit" value="" hidden>
+            <div class="flex gap-3 justify-end">
+                <button type="submit" class="rounded-2xl border-2 border-green-500 py-1 px-3 font-serif text-green-500 hover:cursor-pointer hover:bg-green-500 hover:text-platinum-base ease-in-out transition-all duration-500">
+                    Modifier
+                </button>
+                <input id="idQuestionEdit" value="" hidden>
+                <div onclick="closeModal()" class="rounded-2xl border-2 border-blue-techno-base py-1 px-3 font-serif text-blue-techno-base hover:cursor-pointer hover:bg-blue-techno-base hover:text-platinum-base ease-in-out transition-all duration-500">
+                    Fermer
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
 <footer class="flex flex-col g-2 items-center justify-center p-6 font-serif">
     <p>© 2024 Expenergie - Tous droits réservés</p>
     <p class="text-platinum-3">Conçu et développé par <a href="https://esteban-desessard.fr" target="_blank" class="underline">Estéban DESESSARD</a></p>

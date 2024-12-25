@@ -131,3 +131,30 @@ function deleteInstallation(e) {
         }
     };
 }
+
+function showModalEditionInstallation(id) {
+    let background = document.getElementById('modal-background');
+    let modal = document.getElementById(`modalEditionInstallation`);
+    let title = document.getElementById('titleInstallationEdit');
+    let description = document.getElementById('descriptionInstallationEdit');
+    let details = document.getElementById('detailsInstallationEdit');
+
+    document.getElementById('idInstallationEdit').value = id;
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", `/office/installation/get/${id}`, true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            console.log(xhr.responseText);
+            let installation = JSON.parse(xhr.responseText);
+            title.value = installation.title;
+            description.value = installation.description;
+            details.value = installation.details;
+        }
+    };
+
+    modal.classList.remove("hidden");
+    background.classList.remove("hidden");
+}

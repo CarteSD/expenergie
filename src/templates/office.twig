@@ -73,10 +73,12 @@
                             </div>
                         </div>
                         <div class="answer overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0;">
-                            <p class="font-serif p-4 text-justify md:mr-16"><span class="underline">Réponse :</span> {{ question.answer }}</p>
-                            {% if question.link %}
-                                <a class="font-serif p-4 text-justify md:mr-16 text-blue-techno-base hover:underline" href="{{ question.link }}" target="_blank"><span class="underline">Lien :</span> {{ question.link }}</a>
-                            {% endif %}
+                            <div class="flex flex-col gap-2 p-4">
+                                <p class="font-serif text-justify md:mr-16"><span class="underline">Réponse :</span> {{ question.answer }}</p>
+                                {% if question.link %}
+                                    <p class="font-serif text-justify md:mr-16"><span class="underline">Lien :</span> <a class="font-serif text-justify md:mr-16 text-blue-techno-base hover:underline" href="{{ question.link }}" target="_blank">{{ question.link }}</a></p>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 {% endfor %}

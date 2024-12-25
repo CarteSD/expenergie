@@ -46,4 +46,11 @@ class InstallationDAO
         $installations = $query->fetchAll();
         return $this->hydrateMany($installations);
     }
+
+    public function delete($id)
+    {
+        $query = $this->pdo->prepare('DELETE FROM ' . DB_PREFIX . 'installation WHERE id = :id');
+        $query->bindParam(':id', $id);
+        return $query->execute();
+    }
 }

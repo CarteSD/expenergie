@@ -80,4 +80,13 @@ class ControllerOffice extends Controller
             exit;
         }
     }
+
+    public function deleteInstallation($id) {
+        $installationManager = new InstallationDAO($this->getPdo());
+        if ($installationManager->delete($id)) {
+            echo json_encode(['success' => true]);
+        } else {
+            echo json_encode(['success' => false]);
+        }
+    }
 }

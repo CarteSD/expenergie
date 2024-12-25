@@ -22,9 +22,33 @@ document.querySelectorAll('.faq-question').forEach(question => {
     });
 });
 
-function showModalSuppression(id) {
+document.querySelectorAll('.installation').forEach(installation => {
+    installation.addEventListener('click', function() {
+        const description = this.querySelector('.installation-description');
+        const isExpanded = this.classList.contains('expanded');
+
+        // Ferme toutes les autres questions
+        document.querySelectorAll('.installation').forEach(otherInstallation => {
+            if (otherInstallation !== this && otherInstallation.classList.contains('expanded')) {
+                otherInstallation.classList.remove('expanded');
+                otherInstallation.querySelector('.installation-description').style.maxHeight = "0px";
+            }
+        });
+
+        // Ouvre/ferme la question cliquée
+        if (!isExpanded) {
+            this.classList.add('expanded');
+            description.style.maxHeight = description.scrollHeight + "px";
+        } else {
+            this.classList.remove('expanded');
+            description.style.maxHeight = "0px";
+        }
+    });
+});
+
+function showModalSuppressionQuestion(id) {
     let background = document.getElementById('modal-background');
-    let modal = document.getElementById(`modalSuppression`);
+    let modal = document.getElementById(`modalSuppressionQuestion`);
     document.getElementById('idQuestionSuppr').value = id;
     modal.classList.remove("hidden");
     background.classList.remove("hidden");
@@ -54,9 +78,9 @@ function deleteQuestion(e) {
     };
 }
 
-function showModalEdition(id) {
+function showModalEditionQuestion(id) {
     let background = document.getElementById('modal-background');
-    let modal = document.getElementById(`modalEdition`);
+    let modal = document.getElementById(`modalEditionQuestion`);
     let title = document.getElementById('titleQuestionEdit');
     let answer = document.getElementById('answerQuestionEdit');
     let link = document.getElementById('linkQuestionEdit');
@@ -78,4 +102,25 @@ function showModalEdition(id) {
 
     modal.classList.remove("hidden");
     background.classList.remove("hidden");
+}
+
+function showModalSuppressionInstallation(id) {
+    let background = document.getElementById('modal-background');
+    let modal = document.getElementById(`modalSuppressionInstallation`);
+    document.getElementById('idInstallationSuppr').value = id;
+    modal.classList.remove("hidden");
+    background.classList.remove("hidden");
+}
+
+function deleteInstallation(e) {
+    let idInstallation = document.getElementById('idInstallationSuppr').value;
+    const xhr = new XMLHttpRequest();
+    xhr.open("DELETE", `/office/installation/delete/${idInstallation}`, true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            location.reload();
+        }
+    };
 }

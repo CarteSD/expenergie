@@ -209,3 +209,12 @@
 .faq-question.expanded .toggle-icon {
     transform: rotate(180deg);
 }
+
+.installation-description {
+    opacity: 0;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.installation.expanded .installation-description {
+    opacity: 1;
+}

@@ -104,6 +104,10 @@ function showModalEditionQuestion(id) {
     background.classList.remove("hidden");
 }
 
+function showModalAddQuestion() {
+
+}
+
 function showModalSuppressionInstallation(id) {
     let background = document.getElementById('modal-background');
     let modal = document.getElementById(`modalSuppressionInstallation`);

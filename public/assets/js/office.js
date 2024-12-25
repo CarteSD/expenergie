@@ -105,7 +105,10 @@ function showModalEditionQuestion(id) {
 }
 
 function showModalAddQuestion() {
-
+    let background = document.getElementById('modal-background');
+    let modal = document.getElementById(`modalAjoutQuestion`);
+    modal.classList.remove("hidden");
+    background.classList.remove("hidden");
 }
 
 function showModalSuppressionInstallation(id) {

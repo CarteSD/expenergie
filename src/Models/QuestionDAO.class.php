@@ -56,7 +56,8 @@ class QuestionDAO
 
     public function findById($id)
     {
-        $query = $this->pdo->prepare('SELECT * FROM ' . DB_PREFIX . 'faq WHERE id = 11');
+        $query = $this->pdo->prepare('SELECT * FROM ' . DB_PREFIX . 'faq WHERE id = :id');
+        $query->bindParam(':id', $id);
         $query->execute();
         $query->setFetchMode(PDO::FETCH_ASSOC);
         $question = $query->fetch();

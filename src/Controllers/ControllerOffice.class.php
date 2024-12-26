@@ -156,4 +156,36 @@ class ControllerOffice extends Controller
             exit;
         }
     }
+
+    public function addInstallation($title, $description, $details, $img) {
+        $installationManager = new InstallationDAO($this->getPdo());
+        $imgPath = '';
+
+        if ($img && $img['error'] === UPLOAD_ERR_OK) {
+            $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+            if (!in_array($img['type'], $allowedTypes)) {
+                throw new Exception('Type de fichier non autorisé');
+            }
+            if ($img['size'] > 5 * 1024 * 1024) {
+                throw new Exception('Fichier trop volumineux');
+            }
+            $extension = pathinfo($img['name'], PATHINFO_EXTENSION);
+            $newFileName = uniqid() . '.' . $extension;
+            $uploadDir = 'assets/img/';
+
+            $newFilePath = $uploadDir . $newFileName;
+
+            if (!move_uploaded_file($img['tmp_name'], $newFilePath)) {
+                throw new Exception('Erreur lors du téléchargement de l\'image');
+            } else {
+                $imgPath = $newFileName;
+            }
+        }
+
+        $installation = new Installation(null, $title, $description, $details, $imgPath);
+        if ($installationManager->add($installation)) {
+            header('Location: /office');
+            exit;
+        }
+    }
 }

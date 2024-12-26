@@ -117,6 +117,9 @@ $router->post('/office', function () use ($twig, $loader) {
     if (isset($_POST['titleInstallationEdit']) && $_POST['titleInstallationEdit'] != "" && isset($_POST['descriptionInstallationEdit']) && $_POST['descriptionInstallationEdit'] != "" && isset($_POST['detailsInstallationEdit']) && $_POST['detailsInstallationEdit'] != "") {
         ControllerFactory::getController("office", $loader, $twig)->call("editInstallation", [$_POST['idInstallationEdit'], $_POST['titleInstallationEdit'], $_POST['descriptionInstallationEdit'], $_POST['detailsInstallationEdit'], $_FILES['imageInstallationEdit'] ?? null]);
     }
+    if (isset($_POST['titleInstallationAdd']) && $_POST['titleInstallationAdd'] != "" && isset($_POST['descriptionInstallationAdd']) && $_POST['descriptionInstallationAdd'] != "" && isset($_POST['detailsInstallationAdd']) && $_POST['detailsInstallationAdd'] != "") {
+        ControllerFactory::getController("office", $loader, $twig)->call("addInstallation", [$_POST['titleInstallationAdd'], $_POST['descriptionInstallationAdd'], $_POST['detailsInstallationAdd'], $_FILES['imageInstallationAdd'] ?? null]);
+    }
     exit;
 });
 

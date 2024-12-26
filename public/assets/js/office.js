@@ -158,3 +158,10 @@ function showModalEditionInstallation(id) {
     modal.classList.remove("hidden");
     background.classList.remove("hidden");
 }
+
+function showModalAddInstallation() {
+    let background = document.getElementById('modal-background');
+    let modal = document.getElementById(`modalAjoutInstallation`);
+    modal.classList.remove("hidden");
+    background.classList.remove("hidden");
+}

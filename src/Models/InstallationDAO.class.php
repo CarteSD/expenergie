@@ -79,4 +79,18 @@ class InstallationDAO
         $query->bindParam(':imgPath', $imgPath);
         return $query->execute();
     }
+
+    public function add(Installation $installation)
+    {
+        $query = $this->pdo->prepare('INSERT INTO ' . DB_PREFIX . 'installation (title, description, details, imgPath) VALUES (:title, :description, :details, :imgPath)');
+        $title = $installation->getTitle();
+        $query->bindParam(':title', $title);
+        $description = $installation->getDescription();
+        $query->bindParam(':description', $description);
+        $details = $installation->getDetails();
+        $query->bindParam(':details', $details);
+        $imgPath = $installation->getImgPath();
+        $query->bindParam(':imgPath', $imgPath);
+        return $query->execute();
+    }
 }

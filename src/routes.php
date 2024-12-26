@@ -108,12 +108,14 @@ $router->post('/office', function () use ($twig, $loader) {
         header('Location: /login');
         exit;
     }
-    var_dump($_POST);
     if (isset($_POST['titleQuestionEdit']) && $_POST['titleQuestionEdit'] != "" && isset($_POST['answerQuestionEdit']) && $_POST['answerQuestionEdit'] != "") {
         ControllerFactory::getController("office", $loader, $twig)->call("editQuestion", [$_POST['idQuestionEdit'], $_POST['titleQuestionEdit'], $_POST['answerQuestionEdit'], $_POST['linkQuestionEdit']]);
     }
     if (isset($_POST['titleQuestionAdd']) && $_POST['titleQuestionAdd'] != "" && isset($_POST['answerQuestionAdd']) && $_POST['answerQuestionAdd'] != "") {
         ControllerFactory::getController("office", $loader, $twig)->call("addQuestion", [$_POST['titleQuestionAdd'], $_POST['answerQuestionAdd'], $_POST['linkQuestionAdd'] ?? null]);
+    }
+    if (isset($_POST['titleInstallationEdit']) && $_POST['titleInstallationEdit'] != "" && isset($_POST['descriptionInstallationEdit']) && $_POST['descriptionInstallationEdit'] != "" && isset($_POST['detailsInstallationEdit']) && $_POST['detailsInstallationEdit'] != "") {
+        ControllerFactory::getController("office", $loader, $twig)->call("editInstallation", [$_POST['idInstallationEdit'], $_POST['titleInstallationEdit'], $_POST['descriptionInstallationEdit'], $_POST['detailsInstallationEdit'], $_FILES['imageInstallationEdit'] ?? null]);
     }
     exit;
 });

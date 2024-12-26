@@ -10,6 +10,8 @@
 
 namespace Controllers;
 
+use Exception;
+use Installation;
 use InstallationDAO;
 use Question;
 use QuestionDAO;
@@ -110,5 +112,48 @@ class ControllerOffice extends Controller
             'details' => $installation->getDetails(),
             'imgPath' => $installation->getImgPath()
         ]);
+    }
+
+    public function editInstallation($id, $title, $description, $details, $img) {
+        $installationManager = new InstallationDAO($this->getPdo());
+        $installation = $installationManager->findById($id);
+        $imgPath = $installation->getImgPath();
+
+        var_dump($img);
+
+        if ($img && $img['error'] === UPLOAD_ERR_OK) {
+            $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+            if (!in_array($img['type'], $allowedTypes)) {
+                throw new Exception('Type de fichier non autorisé');
+            }
+            if ($img['size'] > 5 * 1024 * 1024) {
+                throw new Exception('Fichier trop volumineux');
+            }
+            $extension = pathinfo($img['name'], PATHINFO_EXTENSION);
+            $newFileName = uniqid() . '.' . $extension;
+            $uploadDir = 'assets/img/';
+
+            $newFilePath = $uploadDir . $newFileName;
+
+            if ($imgPath && file_exists($imgPath) && $imgPath !== 'default.png') {
+                unlink($imgPath);
+            }
+
+            if (!move_uploaded_file($img['tmp_name'], $newFilePath)) {
+                throw new Exception('Erreur lors du téléchargement de l\'image');
+            } else {
+                $imgPath = $newFileName;
+            }
+        }
+
+        $installation->setTitle($title);
+        $installation->setDescription($description);
+        $installation->setDetails($details);
+        $installation->setImgPath($imgPath);
+
+        if ($installationManager->update($installation)) {
+            header('Location: /office');
+            exit;
+        }
     }
 }

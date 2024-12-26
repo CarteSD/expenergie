@@ -246,7 +246,7 @@
     <div class="flex flex-col gap-5 my-5">
         <p class="font-serif text-2xl font-semibold text-center">Modifier une installation</p>
         <hr>
-        <form method="POST" class="flex flex-col gap-4">
+        <form method="POST" enctype="multipart/form-data" class="flex flex-col gap-4">
             <label for="titleInstallationEdit" class="font-serif text-xl font-semibold">Titre</label>
             <input type="text" id="titleInstallationEdit" name="titleInstallationEdit" class="rounded-2xl border-2 border-platinum-3 p-2 font-serif" required>
 
@@ -259,7 +259,7 @@
             <div class="flex flex-col">
                 <label for="imageInstallationEdit" class="font-serif text-xl font-semibold">Image <span class="italic">(facultatif)</span></label>
                 <p class="font-serif">Laissez vide si inchangé</p>
-                <input type="file" id="imageInstallationEdit" name="imageInstallationEdit" class="rounded-2xl border-2 border-platinum-3 p-2 font-serif" accept="image/*">
+                <input type="file" id="imageInstallationEdit" name="imageInstallationEdit" class="rounded-2xl border-2 border-platinum-3 p-2 font-serif" accept="image/jpeg, image/jpg, image/png">
             </div>
 
 

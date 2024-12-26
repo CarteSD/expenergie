@@ -63,4 +63,20 @@ class InstallationDAO
         $installation = $query->fetch();
         return $this->hydrate($installation);
     }
+
+    public function update(Installation $installation)
+    {
+        $query = $this->pdo->prepare('UPDATE ' . DB_PREFIX . 'installation SET title = :title, description = :description, details = :details, imgPath = :imgPath WHERE id = :id');
+        $id = $installation->getId();
+        $query->bindParam(':id', $id);
+        $title = $installation->getTitle();
+        $query->bindParam(':title', $title);
+        $description = $installation->getDescription();
+        $query->bindParam(':description', $description);
+        $details = $installation->getDetails();
+        $query->bindParam(':details', $details);
+        $imgPath = $installation->getImgPath();
+        $query->bindParam(':imgPath', $imgPath);
+        return $query->execute();
+    }
 }

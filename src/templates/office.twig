@@ -131,7 +131,13 @@
                         </div>
                         <div class="installation-description overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0;">
                             <div class="flex flex-col gap-2 p-4">
-                                <p class="font-serif text-justify md:mr-16"><span class="underline">Image :</span><img src="assets/img/{{ installation.imgPath }}" alt=""></p>
+                                <p class="font-serif text-justify md:mr-16"><span class="underline">Image :</span>
+                                    {% if installation.imgPath != null %}
+                                        <img src="assets/img/{{ installation.imgPath }}" alt="">
+                                    {% else %}
+                                        <span class="italic">Aucune image</span>
+                                    {% endif %}
+                                </p>
                                 <p class="font-serif text-justify md:mr-16"><span class="underline">Description :</span> {{ installation.description }}</p>
                                 <p class="font-serif text-justify md:mr-16"><span class="underline">Détails :</span> {{ installation.details }}</p>
                             </div>

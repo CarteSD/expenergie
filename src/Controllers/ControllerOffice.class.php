@@ -159,7 +159,7 @@ class ControllerOffice extends Controller
 
     public function addInstallation($title, $description, $details, $img) {
         $installationManager = new InstallationDAO($this->getPdo());
-        $imgPath = '';
+        $imgPath = null;
 
         if ($img && $img['error'] === UPLOAD_ERR_OK) {
             $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];

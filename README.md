@@ -40,13 +40,18 @@ Pour exécuter ce projet localement, vous aurez besoin de :
     composer install
     npm install
     ```
+
+3. **Adapter le .env.exemple puis le renommer** ✏️
    
-3. **Compiler les assets** 🛠️
+4. **Générer la base de données en important le script SQL** 🗃️ 
+   *(Le script SQL se trouve dans le dossier `/database`)*
+
+5. **Compiler les assets** 🛠️
     ```bash
     npm run build
     ```
    
-4. **Lancer le serveur** 🚀
+6. **Lancer le serveur** 🚀
     ```bash
     npm run start
     ```

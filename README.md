@@ -6,7 +6,7 @@ Site web vitrine pour **Expenergie**, une SARL spécialisée dans l'installation
 ## 🚧 Version 2.0
 Cette version implémente l'ensemble des fonctionnalités de la version 1.0 ainsi que le back-office.  
 Le back-office permet aux personnes en ayant les codes d'authentification de gérer les différentes pages du site pouvant être personnalisées *(ajout, modification, suppression de questions ou exemples d'installations).*
----
+
 
 ## 🛠️ Technologies Utilisées
 
@@ -17,7 +17,6 @@ Le back-office permet aux personnes en ayant les codes d'authentification de gé
 - **PHP** 🐘 - Langage backend
 - **Twig** 🧩 - Moteur de templates
 
----
 
 ## ✅ Prérequis
 
@@ -27,7 +26,6 @@ Pour exécuter ce projet localement, vous aurez besoin de :
 - **Node.js** et **npm** (pour TailwindCSS) 📦
 - Un serveur web local (**Apache/Nginx**) 🌐
 
----
 
 ## 🚀 Installation
 

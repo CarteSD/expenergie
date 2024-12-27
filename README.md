@@ -3,11 +3,9 @@
 ## 🌟 À propos
 Site web vitrine pour **Expenergie**, une SARL spécialisée dans l'installation de **systèmes photovoltaïques** avec stockage d'énergie. Ce projet met en avant les services et l'expertise de l'entreprise dans le domaine des **énergies renouvelables**. 🌱
 
-## 🚧 Version 1.0
-Cette version implémente le modèle **MVC** (Modèle-Vue-Contrôleur) et prend en charge la récupération des questions et des installations depuis une base de données **MySQL**.  
-La base de données doit pour l'instant être peuplée à l'aide d'une application comme **phpMyAdmin**.  
-Dans la prochaine version, un back-office protégé par une connexion sécurisée sera mis en place afin d'intéragir avec la base de données de manière plus simple.
-
+## 🚧 Version 2.0
+Cette version implémente l'ensemble des fonctionnalités de la version 1.0 ainsi que le back-office.  
+Le back-office permet aux personnes en ayant les codes d'authentification de gérer les différentes pages du site pouvant être personnalisées *(ajout, modification, suppression de questions ou exemples d'installations).*
 ---
 
 ## 🛠️ Technologies Utilisées
